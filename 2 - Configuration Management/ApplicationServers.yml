@@ -2,7 +2,7 @@
 
 #I would normally put the password in j2, create a role and encrypt with Ansible-Vault
 #also best practice would have been to use Active Directory groups and users instead
-- hosts:
+- hosts: appservers
   gather_facts: no
   tasks:
      - name: Create group FictitionalAppAdmin
@@ -14,7 +14,7 @@
      - name: Ensure Fictitional AppUser Dave is present
        win_user:
          name: Dave
-         password: {{pass}}
+         password: '{{pass}}'
          state: present
          groups:
            - FictitionalAppAdmin
