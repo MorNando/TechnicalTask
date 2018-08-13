@@ -1,0 +1,33 @@
+- name: Create group FictitionalAppAdmin
+  win_group:
+    name: FictitionalAppAdmin
+    description: Admin group for FictitionalApp
+    state: present
+
+- name: Ensure Fictitional AppUser Dave is present
+  win_user:
+    name: Dave
+    password: SuperSecurePassword
+    state: present
+    groups:
+      - FictitionalAppAdmin
+
+- name: Create directory structure
+  win_file:
+    path: C:\Logs
+    state: directory
+
+- name: Add Dave allow rights
+  win_acl:
+    path: C:\Logs
+    user: FictitionalAppAdmin
+    rights: FullControl
+    type: allow
+    state: present
+    inherit: ContainerInherit, ObjectInherit
+    propagation: 'None'
+  
+- name: Run the log clean up script
+  win_command: powershell.exe -
+  args:
+    stdin: c:\LogCleanUp.ps1 -LogFolderPath c:\logs -DaysArchiveAfter 20 -DaysDeleteAfter 60
