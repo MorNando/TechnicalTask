@@ -1,6 +1,6 @@
 ---
-[appservers]
-appserver1
-
-[appservers:Vars]
-pass=SuperSecurePassword
+appservers:
+  hosts:
+     appserver1
+  vars:
+     pass:SuperSecurePassword
