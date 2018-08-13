@@ -1,0 +1,6 @@
+---
+[appservers]
+appserver1
+
+[appservers:Vars]
+pass=SuperSecurePassword
