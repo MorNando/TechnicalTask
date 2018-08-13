@@ -8,7 +8,7 @@
          description: Admin group for FictitionalApp
          state: present
 
-#I would normally put the password in the group_vars or j2 and encrypt with Ansible-Vault
+#I would normally put the password in j2, create a role and encrypt with Ansible-Vault
      - name: Ensure Fictitional AppUser Dave is present
        win_user:
          name: Dave
