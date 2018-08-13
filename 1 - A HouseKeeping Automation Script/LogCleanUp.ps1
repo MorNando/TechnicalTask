@@ -75,8 +75,7 @@ Function Start-CompressFiles {
     else {
         Write-Verbose -Message 'Nothing to archive. Up to date'
     }
-
-
+    
     Get-ChildItem -Path $LogFolderPath -Filter *.zip | Move-Item -Destination $LogFolderPath\_Archive
 }
 
