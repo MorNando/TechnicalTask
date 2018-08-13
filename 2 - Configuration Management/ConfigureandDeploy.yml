@@ -4,6 +4,7 @@
     description: Admin group for FictitionalApp
     state: present
 
+#I would normally put the password in the Group_Vars and encrypt with Ansible-Vault
 - name: Ensure Fictitional AppUser Dave is present
   win_user:
     name: Dave
