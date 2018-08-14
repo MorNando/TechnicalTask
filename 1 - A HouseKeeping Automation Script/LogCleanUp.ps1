@@ -62,7 +62,7 @@ Function Start-CompressFiles {
     $Date = Get-Date -Format dd-MM-yyyyTHH-mm
     
     $ToArchive = Get-ChildItem -Path $LogFolderPath -File | 
-        Where-Object { ( $_.CreationTime -lt (Get-Date).AddDays( - $DaysArchiveAfter) ) -and ($_.Extension -ne '.zip') }
+        Where-Object { ( $_.CreationTime -lt (Get-Date).AddDays( -$DaysArchiveAfter) ) -and ($_.Extension -ne '.zip') }
 
     If($ToArchive -ne $Null){
 
